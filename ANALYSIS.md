@@ -51,12 +51,21 @@
     - [Resources : LIF](#resources--lif)
     - [Audio : MP3](#audio--mp3)
   - [Files Format](#files-format)
-    - [file1](#file1)
-    - [file2](#file2)
     - [.mdf](#mdf)
+    - [/etc/bluetooth/config/active](#etcbluetoothconfigactive)
+    - [/etc/bluetooth/config/last\_device](#etcbluetoothconfiglast_device)
+    - [/etc/bluetooth/devices/0](#etcbluetoothdevices0)
+    - [/etc/onboarding/force\_update](#etconboardingforce_update)
     - [/etc/library/list](#etclibrarylist)
+    - [/etc/wifi/config/active](#etcwificonfigactive)
+    - [/str/UUID\_v4/key](#struuid_v4key)
+    - [/str/UUID\_v4/info](#struuid_v4info)
+    - [/str/UUID\_v4/main.lsf](#struuid_v4mainlsf)
+    - [/str/UUID\_v4/version](#struuid_v4version)
     - [/str/UUID\_v4/img](#struuid_v4img)
+    - [/str/UUID\_v4/scripts](#struuid_v4scripts)
     - [/str/UUID\_v4/sounds](#struuid_v4sounds)
+    - [/tmp/cable\_update\_complete](#tmpcable_update_complete)
   - [Story UUIDs](#story-uuids)
     - [Full story database](#full-story-database)
 - [Links](#links)
@@ -712,7 +721,7 @@ It looks like there is one Story Key that is common to **ALL** Flams.
 |[`sd:0:/str/UUID_v4/main.lsf`](#struuid_v4mainlsf) | **Story?** | Initial script to run for story |
 |[`sd:0:/str/UUID_v4/version`](#struuid_v4version) | None | A plain text file with a revision number |
 |[`sd:0:/str/UUID_v4/img/`](#struuid_v4img) | **None?** | Images resources |
-|[`sd:0:/str/UUID_v4/script/`]() | **Story?** | Interactions resources |
+|[`sd:0:/str/UUID_v4/script/`](#struuid_v4scripts) | **Story?** | Interactions resources |
 |[`sd:0:/str/UUID_v4/sounds/`](#struuid_v4sounds) | **None?** | Audio resouces |
 |[`sd:0:/test`]() | None | Various MP3 at different frequencPies for TestMode |
 |[`sd:0:/test`]() | None | Various MP3 at different frequencies for TestMode |
@@ -758,22 +767,6 @@ Writing library                          : LAME3.100
 ```
 
 ## Files Format
-### file1
-* **Length** : 0x14 (20B)
-purpose
-
-``` 
-content
-``` 
-
-### file2
-* **Length** : 0x14 (20B)
-purpose
-
-``` 
-content
-``` 
-
 
 ### .mdf
 * **Length** : 0x7E (126B)
@@ -910,6 +903,15 @@ XXXXXX : Compress data ! LZW ? RLE ?
 
 
 **FORMAT DETAILS** : [here](#resources--lif)
+
+
+### /str/UUID_v4/scripts
+* **Length** : variable  
+* **Key** : Story?
+
+These files store scripts, TO BE ANALYZED   
+
+**FORMAT DETAILS** : [...]()
 
 ### /str/UUID_v4/sounds
 * **Length** : variable  

@@ -18,6 +18,7 @@
 1. modifications on mdf ?
 
 ## Facts
+* Wifi added networks is not creating a new file on SDCard (might be directly stored in dedicated WIFI ESP32 chip)
 * Key file can be the same for all stories
 * No Key do not prevent story selection. Info are incorrectly deciphered
 

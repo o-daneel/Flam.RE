@@ -700,18 +700,23 @@ It looks like there is one Story Key that is common to **ALL** Flams.
 | File | Key | Contents|
 |-|-|-|
 |[`sd:0:/.mdf`](#mdf) | ??? | Metadata including two FW versions, SNU, VID / PID, Keys ?
+|[`sd:0:/etc/bluetooth/config/active`]() | None | |
+|[`sd:0:/etc/bluetooth/config/last_device`]() | None | |
+|[`sd:0:/etc/bluetooth/devices/0`]() | None | |
+|[`sd:0:/etc/onboarding/force_update`](#etconboardingforce_update) | None | Pending FW update on device |
+|[`sd:0:/etc/library/list`](#etclibrarylist) | None | List of all UUID storiez installed |
 |[`sd:0:/str`]() | None | Stories storage |
 |[`sd:0:/str/UUID_v4`]() | None | All resources for one story |
-|[`sd:0:/str/UUID_v4/img/`](#struuid_v4img) | ??? | Images resources |
-|[`sd:0:/str/UUID_v4/script/`]() | ??? | Interactions resources |
-|[`sd:0:/str/UUID_v4/sounds/`](#struuid_v4sounds) | None | Audio resouces |
-|[`sd:0:/str/UUID_v4/info`]() | Story | Info related the story |
-|[`sd:0:/str/UUID_v4/key`]() | ??? | Auth token for this story on this device |
-|[`sd:0:/str/UUID_v4/main.lsf`]() | ??? | Initial script to run for story |
-|[`sd:0:/str/UUID_v4/version`]() | None | A plain text file with a revision number |
+|[`sd:0:/str/UUID_v4/info`](#struuid_v4info) | Story | Info related the story |
+|[`sd:0:/str/UUID_v4/key`](#struuid_v4key) | Device | Auth token for this story on this device |
+|[`sd:0:/str/UUID_v4/main.lsf`](#struuid_v4mainlsf) | **Story?** | Initial script to run for story |
+|[`sd:0:/str/UUID_v4/version`](#struuid_v4version) | None | A plain text file with a revision number |
+|[`sd:0:/str/UUID_v4/img/`](#struuid_v4img) | **None?** | Images resources |
+|[`sd:0:/str/UUID_v4/script/`]() | **Story?** | Interactions resources |
+|[`sd:0:/str/UUID_v4/sounds/`](#struuid_v4sounds) | **None?** | Audio resouces |
 |[`sd:0:/test`]() | None | Various MP3 at different frequencPies for TestMode |
 |[`sd:0:/test`]() | None | Various MP3 at different frequencies for TestMode |
-|[`sd:0:/tmp`]() | None | Related to cable update|
+|[`sd:0:/tmp/cable_update_complete`](#tmpcable_update_complete) | None | Related to cable update|
 |[`sd:0:/usr/0`]() | None | User story progress for all stories|
 |[`sd:0:/usr/0/UUID_v4`]() | None | User story progress for one story |
 
@@ -772,26 +777,67 @@ content
 
 ### .mdf
 * **Length** : 0x7E (126B)
-* **Key** : ???
+* **Key** : plain / device
 
-Structure:
+Structure:  
+(to be confirmed, seems to be based on same structure as v3)
 
+  `--- First 64B Block --- PLAIN ---`
 ``` 
 0100 (Static)
 6D61696E3A20312E31312E32372D613035386235380A636F
-6D6D3A20312E392E382D3035363233363100000000000000 : FW versions
+6D6D3A20312E392E382D3035363233363100000000000000 : FW versions (48 Bytes)
                                                    > main: 1.11.27-a058b58
                                                    > comm: 1.9.8-0562361
 
 333030323330343030303132333400000000000000000000 : SNU - Storyteller Unique ID  (24 Bytes)
                                                    > 30023040001234 
 
-3A309E81 : USB VendorID / ProductID
-AABBCCDD......88990011 : undefined (48 Bytes)
+3A309E81 : USB Vendor ID / Product ID (8 Bytes)
+         > VID 0x3A30, PID 0x9E81
 ``` 
 
+  `--- Second 48B Block --- CIPHERED ---`  
+Contains twice the SNU, ciphered with device key
+``` 
+    333030323330343030303132333400000000000000000000 : SNU - Storyteller Unique ID  (24 Bytes)
+                                                       > 30023040001234 
+    333030323330343030303132333400000000000000000000 : SNU - Storyteller Unique ID  (24 Bytes)
+                                                       > 30023040001234 
+```
+
+### /etc/bluetooth/config/active
+* **Length** : variable  
+* **Key** : None  
+  
+This configures the bluetooth module power state. File contents is limited to `true` or `false`.
+
+### /etc/bluetooth/config/last_device
+* **Length** : variable  
+* **Key** : None  
+
+This file duplicates the last connected device, eventually the first to look for when Flam is started.  
+File contents : (refer to [the next section](#etcbluetoothdevices0))
+
+### /etc/bluetooth/devices/0
+* **Length** : variable  
+* **Key** : None
+One file per paired bluetooth device.
+
+File contents
+```
+BT Headset
+3c:54:53:b8:32:a0
+```
+
+### /etc/onboarding/force_update
+* **Length** : variable  
+* **Key** : None
+
+This allows to request Flam to perform update even if firmware is already installed. File contents is limited to `true` or `false`.
+
 ### /etc/library/list
-* **Length** : variable
+* **Length** : variable  
 * **Key** : None
 
 This file is the root files that stores all stories available in device. It contains a simple list of UUID formatted as strings, one per line, with LF line endings.
@@ -803,20 +849,80 @@ C4139D59-872A-4D15-8CF1-76D34CDF38C6
 
 Each UUIDs match in the stories storage subdirectories `/str`.
 
+### /etc/wifi/config/active
+* **Length** : variable  
+This configures the wifi module power state. File contents is limited to `true` or `false`.  
+**NOTE:** no effect when set to `true`
 
+
+### /str/UUID_v4/key
+* **Length** : 0x20
+* **Key** : device specific  
+ 
+  
+This file contains the Story keys. It is made of story Key an IV ciphered with Device key
+
+``` C
+typedef struct {
+    uint key[4];
+    uint iv[4];
+} story_key;
+```
+
+### /str/UUID_v4/info
+* **Length** : variable  
+* **Key** : story
+
+Contents are still mysterious.  
+It might contains Title at least, and maybe Description   
+
+### /str/UUID_v4/main.lsf
+* **Length** : Variable
+* **Key** : Story?  
+  
+Initial script to run for story.  
+**NOTE :** beginning of file is always the same (some kind of header ?)
+``` 
+89837DE824CECD37D9F3223E60E296EF : Header ??
+XXX...XXX : ciphered contents
+``` 
+
+### /str/UUID_v4/version
+* **Length** : 0x1 (1B)
+* **Key** : plain
+This is a plain text file to store the story version
+
+``` 
+4
+``` 
 ### /str/UUID_v4/img
-* **Length** : variable
+* **Length** : variable  
+* **Key** : plain
 
 These files store Resources, meaning images in a LIFF format   
+``` 
+6C696666 : liff header  (4 Bytes)
+00000012 00000012 : Image resolution (8 Bytes)
+                  > 18 x 18
+XXXXXX : Compress data ! LZW ? RLE ?
+00000000 00000001 : liff footer ? (8 Bytes)
+``` 
+
 
 **FORMAT DETAILS** : [here](#resources--lif)
 
 ### /str/UUID_v4/sounds
-* **Length** : variable
+* **Length** : variable  
+* **Key** : plain
 
 These files store Stories, meaning audio in a MP3 format   
 
 **FORMAT DETAILS** : [here](#audio--mp3)
+
+### /tmp/cable_update_complete
+* **Length** : empty  
+
+TBC : This file is created when the Luniistore has finished to write new firmware on device (over USB)
 
 ## Story UUIDs
 

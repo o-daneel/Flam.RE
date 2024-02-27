@@ -24,27 +24,29 @@
 
 
 ## Assumptions 
-1.  `.mdf` file seems to reuse same strucute as `.md` from Lunii v3  
+
+## Validated 
+1.  `.mdf` file reuse same strucute as `.md` from Lunii v3  
     (means ciphered part of mdf is made of twice the SNU)
 2.  `key` file contains Story AES Key & IV, but ciphered with device key
 3.  Audio files are not encrypted
-3.  Images files are not encrypted (reading liff header)
+4.  Images files are not encrypted 
 
 ## Attack path
 1. `info` file : Using info displayed upon story selection
 
 ### 1. Info file
 * Using `.mdf` as ciphered known plain text as key file, to generate a ciphered info file and determine where is located story title.  
-This offers a tool to decipher story ciphered data.
+*This offers a tool to decipher story ciphered data*.  
+Using v3 trick allows to know fake story keys ciphered with device keys (even if they are unknown). Doing so, we can forge our own `Info` file  
+![](resources/pwned_info.png)
 * Decipher first 0x10 of `main.lsf`
 
 
 # Keys (x3)
 
-* ❓ Device Key + IV (AES 128)   
-  (almost confirmed)
-* ❓ Story  Key + IV (AES 128)   
-  (almost confirmed)
+* ✅ Device Key + IV (AES 128)   
+* ✅ Story  Key + IV (AES 128)   
 * ❓ Update Signature
 
 

@@ -731,8 +731,14 @@ It looks like there is one Story Key that is common to **ALL** Flams.
 
 
 ## Stories Format
+### Script
+Looks like LUA syntax. To be confirmed with full dump
+
 ### Resources : LIF
-???
+???  
+Still undefined  
+Seems to be RLE encoded, with one bit mapping... Looks like TGA ?
+
 ### Audio : MP3
 ```
 > mediainfo.exe .\00-intro-fr_FR.mp3

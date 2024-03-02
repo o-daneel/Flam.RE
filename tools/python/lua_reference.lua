@@ -1,3 +1,4 @@
+local initialized = false
 
 function test1()
     -- open file on SD card
@@ -68,6 +69,42 @@ function init()
     test4()
     test5()
     test6()
+end
+
+local loc1 = pcall(setup)
+local loc2 = setup()
+
+local loc3 = pcall(init)
+local loc4 = init()
+
+
+-------------------------------------------------
+
+
+function setup()
+    local compteur = 0
+    while true do
+        compteur = compteur + 1
+        -- Vérifie si le compteur a atteint 10 000
+        if compteur >= 10000 then
+            -- print("Compteur a atteint 10 000, remise à zéro.")
+            compteur = 0
+        end
+    end
+    return 5
+end
+
+function init()
+    local compteur = 0
+    while true do
+        compteur = compteur + 1
+        -- Vérifie si le compteur a atteint 10 000
+        if compteur >= 10000 then
+            -- print("Compteur a atteint 10 000, remise à zéro.")
+            compteur = 0
+        end
+    end
+    return 5
 end
 
 local loc1 = pcall(setup)

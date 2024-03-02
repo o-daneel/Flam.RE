@@ -8,6 +8,7 @@ KEY_DATA =  b'\x11\x22....' \
             b'\x33\x44....'
 
 CHUNK_SIZE = 0x10
+INFO_SIZE = 0x80
 ROOT_DIR = "./dump_dirs"
 BASE_DIR = ROOT_DIR + "/00000000-dead-0000-0000-00000000"
 
@@ -23,9 +24,9 @@ with open(LUA_SCRIPT, "rb") as fp:
         print(f"Chunk {chunk_num:4}")
         # litlle bit further
         chunk = lua_data[chunk_num*CHUNK_SIZE:]
-        # keeping only 0x50 or less
-        if len(chunk) > 0x50:
-            chunk = chunk[:0x50]
+        # keeping only INFO_SIZE or less
+        if len(chunk) > INFO_SIZE:
+            chunk = chunk[:INFO_SIZE]
 
         hexdump.hexdump(chunk)
         print()

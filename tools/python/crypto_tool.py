@@ -83,5 +83,10 @@ def cipher_lua(input_script, title, output_dir):
 # cipher_lua("custom_scripts/node_info.lua",     "node_info",      OUTPUT_DIR+"00000000-0000-0000-0005-000000000001/")
 # FAIL FAIL
 
+# cipher_lua("custom_scripts/wifi_noconnect.lua",     "wifi_noconnect",      OUTPUT_DIR+"00000000-0000-0000-0006-000000000001/")
+# OK
+# cipher_lua("custom_scripts/wifi_connect.lua",     "wifi_connect",      OUTPUT_DIR+"00000000-0000-0000-0006-000000000002/")
+# cipher_lua("custom_scripts/wifi_connect_x10.lua",     "wifi_connect_x10",      OUTPUT_DIR+"00000000-0000-0000-0006-000000000003/")
+# FAIL FAIL
 
 # cipher_lua("custom_scripts/XXXX.lua",   "XXXX",    OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")

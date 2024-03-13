@@ -55,11 +55,33 @@ def cipher_lua(input_script, title, output_dir):
 # cipher_lua("custom_scripts/loop_10M.lua",  "loop_10M",  OUTPUT_DIR+"00000000-0000-0000-0001-000000000005/")
             
 
-cipher_lua("custom_scripts/file_sd0.lua",   "file_sd0",    OUTPUT_DIR+"00000000-0000-0000-0002-000000000001/")
-cipher_lua("custom_scripts/file_mount.lua", "file_mount",  OUTPUT_DIR+"00000000-0000-0000-0002-000000000002/")
-cipher_lua("custom_scripts/file_io_read.lua", "file_io_read",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000003/")
-cipher_lua("custom_scripts/file_file_read.lua", "file_file_read", OUTPUT_DIR+"00000000-0000-0000-0002-000000000004/")
-cipher_lua("custom_scripts/file_all_sd_write.lua", "file_all_sd_write",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000005/")
-cipher_lua("custom_scripts/file_all_sd_write2.lua", "file_all_sd_write2",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000006/")
-cipher_lua("custom_scripts/file_flash.lua", "file_flash",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000007/")
-cipher_lua("custom_scripts/file_open.lua",   "file_open",    OUTPUT_DIR+"00000000-0000-0000-0002-000000000008/")
+# cipher_lua("custom_scripts/file_sd0.lua",   "file_sd0",    OUTPUT_DIR+"00000000-0000-0000-0002-000000000001/")
+# cipher_lua("custom_scripts/file_mount.lua", "file_mount",  OUTPUT_DIR+"00000000-0000-0000-0002-000000000002/")
+# cipher_lua("custom_scripts/file_io_read.lua", "file_io_read",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000003/")
+# cipher_lua("custom_scripts/file_file_read.lua", "file_file_read", OUTPUT_DIR+"00000000-0000-0000-0002-000000000004/")
+# cipher_lua("custom_scripts/file_all_sd_write.lua", "file_all_sd_write",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000005/")
+# cipher_lua("custom_scripts/file_all_sd_write2.lua", "file_all_sd_write2",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000006/")
+# cipher_lua("custom_scripts/file_flash.lua", "file_flash",     OUTPUT_DIR+"00000000-0000-0000-0002-000000000007/")
+
+# cipher_lua("custom_scripts/api_file_open.lua",   "api_file_open",    OUTPUT_DIR+"00000000-0000-0000-0003-000000000001/")
+# cipher_lua("custom_scripts/api_io_open.lua",   "api_io_open",    OUTPUT_DIR+"00000000-0000-0000-0003-000000000002/")
+# FAIL FAIL
+# cipher_lua("custom_scripts/api_file_lfs.lua",   "api_file_lfs",    OUTPUT_DIR+"00000000-0000-0000-0003-000000000003/")
+# FAIL FAIL
+            
+# cipher_lua("custom_scripts/req_crypto.lua",   "req_crypto",    OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")
+# cipher_lua("custom_scripts/req_file_lfs.lua", "req_file_lfs",  OUTPUT_DIR+"00000000-0000-0000-0004-000000000002/")
+# cipher_lua("custom_scripts/req_file.lua",     "req_file",      OUTPUT_DIR+"00000000-0000-0000-0004-000000000003/")
+# cipher_lua("custom_scripts/req_node.lua",     "req_node",      OUTPUT_DIR+"00000000-0000-0000-0004-000000000004/")
+# cipher_lua("custom_scripts/req_telnet.lua",   "req_telnet",    OUTPUT_DIR+"00000000-0000-0000-0004-000000000005/")
+# cipher_lua("custom_scripts/req_uart.lua",     "req_uart",      OUTPUT_DIR+"00000000-0000-0000-0004-000000000006/")
+# cipher_lua("custom_scripts/req_wifi.lua",     "req_wifi",      OUTPUT_DIR+"00000000-0000-0000-0004-000000000007/")
+# ALL FAIL FAIL
+# cipher_lua("custom_scripts/req_none.lua",     "req_none",      OUTPUT_DIR+"00000000-0000-0000-0004-000000000008/")
+# OK
+
+# cipher_lua("custom_scripts/node_info.lua",     "node_info",      OUTPUT_DIR+"00000000-0000-0000-0005-000000000001/")
+# FAIL FAIL
+
+
+# cipher_lua("custom_scripts/XXXX.lua",   "XXXX",    OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")

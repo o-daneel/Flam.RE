@@ -18,10 +18,17 @@ key_file = b'\x11..' \
 
 # print()
 
+
+def pad_zero(buffer:bytearray):
+    pad_len = (BLOCK_SIZE - len(buffer) % BLOCK_SIZE) % BLOCK_SIZE
+    return buffer + (b'\x00' * pad_len)
+
+
 def cipher_lua(input_script, title, output_name, output_dir):
     print(f"{input_script:32} >>> {output_name:24} TO: {output_dir}")
     if title:
         os.makedirs(output_dir, exist_ok=True)
+    if not title:
         os.makedirs(output_dir + "script/", exist_ok=True)
 
     # writing key file
@@ -34,7 +41,8 @@ def cipher_lua(input_script, title, output_name, output_dir):
         aes = AES.new(raw_dev_key, AES.MODE_CBC, raw_dev_iv)
         with open(output_dir + "info", "wb") as fp:
             # prepare bytes for info file
-            ciphered = aes.encrypt(pad(title.encode('utf-8'), BLOCK_SIZE))
+            title += "\n"
+            ciphered = aes.encrypt(pad_zero(title.encode('utf-8')))
             fp.write(ciphered)
 
     # print()
@@ -46,7 +54,7 @@ def cipher_lua(input_script, title, output_name, output_dir):
         aes = AES.new(raw_dev_key, AES.MODE_CBC, raw_dev_iv)
         with open(input_script, "rb") as fp:
             lua_script = fp.read()
-            ciphered = aes.encrypt(pad(lua_script, BLOCK_SIZE))
+            ciphered = aes.encrypt(pad_zero(lua_script))
 
             with open(output_dir + output_name, "wb") as fp_lsf:
                 fp_lsf.write(ciphered)
@@ -86,6 +94,7 @@ def cipher_lua(input_script, title, output_name, output_dir):
 # # ALL FAIL FAIL
 # cipher_lua("custom_scripts/req_none.lua",     "req_none",      "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000008/")
 # # OK
+                
 cipher_lua("custom_scripts/ref_mytimer.lua",  "noreq mytimer",  "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000009/")
 
 cipher_lua("custom_scripts/req_mytimer.lua",  "req_mytimer",  "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000010/")
@@ -99,6 +108,7 @@ cipher_lua("custom_scripts/my-timer.lua",     None,           "script/global.lsf
 
 cipher_lua("custom_scripts/req_gtimer.lua",   "req_gtimer2",  "main.lsf",          OUTPUT_DIR+"00000000-0000-0000-0004-000000000013/")
 cipher_lua("custom_scripts/my-timer.lua",     None,           "script/global.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000013/")
+# # ALL FAIL FAIL
 
 # cipher_lua("custom_scripts/node_info.lua",    "node_info",     "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0005-000000000001/")
 # # FAIL FAIL
@@ -109,4 +119,19 @@ cipher_lua("custom_scripts/my-timer.lua",     None,           "script/global.lsf
 # cipher_lua("custom_scripts/wifi_connect_x10.lua", "wifi_connect_x10", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0006-000000000003/")
 # # FAIL FAIL
 
+# cipher_lua("custom_lua/white_timer6s.lua", "Timer 6s", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000001/")
+# cipher_lua("custom_lua/white_timer12s.lua", "Timer 12s", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000002/")
+# cipher_lua("custom_lua/white_timers.lua", "Timers", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000003/")
+# cipher_lua("custom_lua/white_test2.lua", "fileExists no call", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000004/")
+# cipher_lua("custom_lua/white_test3.lua", "fileExists test.txt", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000005/")
+# cipher_lua("custom_lua/white_test4.lua", "fileExists on prog all SDs", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000006/")
+# cipher_lua("custom_lua/white_test5.lua", "UART setup", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000007/")
+# cipher_lua("custom_lua/white_test6.lua", "UART write hello", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000008/")
+# cipher_lua("custom_lua/white_test7.lua", "UART 0 write hello", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000009/")
+# cipher_lua("custom_lua/white_test8.lua", "os.loglevel", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000010/")
+# cipher_lua("custom_lua/white_test9.lua", "os.loglevel + os.logcons", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000011/")
+# cipher_lua("custom_lua/white_test10.lua", "os.version", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000012/")
+
+
 # cipher_lua("custom_scripts/XXXX.lua", "XXXX", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")
+

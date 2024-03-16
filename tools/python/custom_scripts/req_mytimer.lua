@@ -1,9 +1,9 @@
 local function main()
     -- Import the mytimer module
-    local mytimer = require("my-timer")
+    local myTimer = require("my-timer")
     
-    -- Call the timer function from the mytimer module
-    mytimer.timer()
+    -- Call the timer function from the myTimer module
+    myTimer.timer()
 end
 
 main()

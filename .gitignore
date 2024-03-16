@@ -3,3 +3,5 @@ dump
 **/fake_stories
 **/custom_lsf
 tools/nodemcu*
+tools/Lua*
+tools/block*

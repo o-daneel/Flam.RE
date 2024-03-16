@@ -1,5 +1,6 @@
 ---@class global
 local global = {}
+global.__index = global
 
 -- makes a 6 sec timer
 function global.timer()

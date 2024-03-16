@@ -1,9 +1,9 @@
 local function main()
     -- Import the mytimer module
-    local mytimer = require("global")
+    local Global = require("global")
     
-    -- Call the timer function from the mytimer module
-    mytimer.timer()
+    -- Call the timer function from the Global module
+    Global.timer()
 end
 
 main()

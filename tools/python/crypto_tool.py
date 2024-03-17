@@ -143,12 +143,18 @@ def cipher_lua(input_script, title, output_name, output_dir):
 # # OK
 # cipher_lua("custom_lua/flam_fn6.lua", "Prog Save simple", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000006/")
 # # FAIL FAIL
-cipher_lua("custom_lua/flam_fn7.lua", "Load Image", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000007/")
+# cipher_lua("custom_lua/flam_fn7.lua", "Load Image", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000007/")
+# ???
+                
+# cipher_lua("custom_lua/flam_dump1_ref.lua", "Dump package loaded (fake)", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000001/")
+# # OK
+# cipher_lua("custom_lua/flam_dump1.lua", "Dump package loaded", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000002/")
+# # FAIL FAIL
 
-cipher_lua("custom_lua/flam_dump1_ref.lua", "Dump package loaded (fake)", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000001/")
-cipher_lua("custom_lua/flam_dump1.lua", "Dump package loaded", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000002/")
-cipher_lua("custom_lua/flam_dump2.lua", "Dump state", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000003/")
-cipher_lua("custom_lua/flam_dump3.lua", "Dump Global", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000004/")
+# cipher_lua("custom_lua/flam_dump2.lua", "Dump state", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000003/")
+# # OK mais vide
+# cipher_lua("custom_lua/flam_dump3.lua", "Dump Global", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000004/")
+# # FAIL FAIL
 
 # cipher_lua("custom_scripts/XXXX.lua", "XXXX", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")
 

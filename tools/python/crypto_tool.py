@@ -119,19 +119,36 @@ def cipher_lua(input_script, title, output_name, output_dir):
 # cipher_lua("custom_scripts/wifi_connect_x10.lua", "wifi_connect_x10", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0006-000000000003/")
 # # FAIL FAIL
 
-# cipher_lua("custom_lua/white_timer6s.lua", "Timer 6s", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000001/")
-# cipher_lua("custom_lua/white_timer12s.lua", "Timer 12s", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000002/")
-# cipher_lua("custom_lua/white_timers.lua", "Timers", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000003/")
-# cipher_lua("custom_lua/white_test2.lua", "fileExists no call", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000004/")
-# cipher_lua("custom_lua/white_test3.lua", "fileExists test.txt", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000005/")
-# cipher_lua("custom_lua/white_test4.lua", "fileExists on prog all SDs", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000006/")
-# cipher_lua("custom_lua/white_test5.lua", "UART setup", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000007/")
-# cipher_lua("custom_lua/white_test6.lua", "UART write hello", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000008/")
-# cipher_lua("custom_lua/white_test7.lua", "UART 0 write hello", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000009/")
-# cipher_lua("custom_lua/white_test8.lua", "os.loglevel", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000010/")
-# cipher_lua("custom_lua/white_test9.lua", "os.loglevel + os.logcons", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000011/")
-# cipher_lua("custom_lua/white_test10.lua", "os.version", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0001-000000000012/")
+# cipher_lua("custom_lua/white_timer6s.lua", "Timer 6s", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000001/")
+# cipher_lua("custom_lua/white_timer12s.lua", "Timer 12s", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000002/")
+# cipher_lua("custom_lua/white_timers.lua", "Timers", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000003/")
+# # OK
+# cipher_lua("custom_lua/white_test2.lua", "fileExists no call", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000004/")
+# cipher_lua("custom_lua/white_test3.lua", "fileExists test.txt", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000005/")
+# cipher_lua("custom_lua/white_test4.lua", "fileExists on prog all SDs", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000006/")
+# cipher_lua("custom_lua/white_test5.lua", "UART setup", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000007/")
+# cipher_lua("custom_lua/white_test6.lua", "UART write hello", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000008/")
+# cipher_lua("custom_lua/white_test7.lua", "UART 0 write hello", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000009/")
+# cipher_lua("custom_lua/white_test8.lua", "os.loglevel", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000010/")
+# cipher_lua("custom_lua/white_test9.lua", "os.loglevel + os.logcons", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000011/")
+# cipher_lua("custom_lua/white_test10.lua", "os.version", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0001-000000000012/")
+# # FAIL FAIL
 
+
+# cipher_lua("custom_lua/flam_fn1.lua", "Math Floor", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000001/")
+# cipher_lua("custom_lua/flam_fn2.lua", "Progression Load", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000002/")
+# cipher_lua("custom_lua/flam_fn3.lua", "Prog Save", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000003/")
+# cipher_lua("custom_lua/flam_fn4.lua", "Prog Save file", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000004/")
+# cipher_lua("custom_lua/flam_fn5.lua", "Prog Save multiple", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000005/")
+# # OK
+# cipher_lua("custom_lua/flam_fn6.lua", "Prog Save simple", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000006/")
+# # FAIL FAIL
+cipher_lua("custom_lua/flam_fn7.lua", "Load Image", "main.lsf", OUTPUT_DIR+"00000000-0000-0001-0002-000000000007/")
+
+cipher_lua("custom_lua/flam_dump1_ref.lua", "Dump package loaded (fake)", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000001/")
+cipher_lua("custom_lua/flam_dump1.lua", "Dump package loaded", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000002/")
+cipher_lua("custom_lua/flam_dump2.lua", "Dump state", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000003/")
+cipher_lua("custom_lua/flam_dump3.lua", "Dump Global", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000004/")
 
 # cipher_lua("custom_scripts/XXXX.lua", "XXXX", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")
 

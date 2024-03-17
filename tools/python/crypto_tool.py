@@ -95,20 +95,20 @@ def cipher_lua(input_script, title, output_name, output_dir):
 # cipher_lua("custom_scripts/req_none.lua",     "req_none",      "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000008/")
 # # OK
                 
-cipher_lua("custom_scripts/ref_mytimer.lua",  "noreq mytimer",  "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000009/")
+# cipher_lua("custom_scripts/ref_mytimer.lua",  "noreq mytimer",  "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000009/")
 
-cipher_lua("custom_scripts/req_mytimer.lua",  "req_mytimer",  "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000010/")
-cipher_lua("custom_scripts/my-timer.lua",     None,           "my-timer.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000010/")
+# cipher_lua("custom_scripts/req_mytimer.lua",  "req_mytimer",  "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000010/")
+# cipher_lua("custom_scripts/my-timer.lua",     None,           "my-timer.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000010/")
 
-cipher_lua("custom_scripts/req_mytimer.lua",  "req_mytimer2", "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000011/")
-cipher_lua("custom_scripts/my-timer.lua",     None,           "script/my-timer.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000011/")
+# cipher_lua("custom_scripts/req_mytimer.lua",  "req_mytimer2", "main.lsf",     OUTPUT_DIR+"00000000-0000-0000-0004-000000000011/")
+# cipher_lua("custom_scripts/my-timer.lua",     None,           "script/my-timer.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000011/")
 
-cipher_lua("custom_scripts/req_gtimer.lua",   "req_gtimer",   "main.lsf",          OUTPUT_DIR+"00000000-0000-0000-0004-000000000012/")
-cipher_lua("custom_scripts/my-timer.lua",     None,           "script/global.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000012/")
+# cipher_lua("custom_scripts/req_gtimer.lua",   "req_gtimer",   "main.lsf",          OUTPUT_DIR+"00000000-0000-0000-0004-000000000012/")
+# cipher_lua("custom_scripts/my-timer.lua",     None,           "global.lsf",        OUTPUT_DIR+"00000000-0000-0000-0004-000000000012/")
 
-cipher_lua("custom_scripts/req_gtimer.lua",   "req_gtimer2",  "main.lsf",          OUTPUT_DIR+"00000000-0000-0000-0004-000000000013/")
-cipher_lua("custom_scripts/my-timer.lua",     None,           "script/global.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000013/")
-# # ALL FAIL FAIL
+# cipher_lua("custom_scripts/req_gtimer.lua",   "req_gtimer2",  "main.lsf",          OUTPUT_DIR+"00000000-0000-0000-0004-000000000013/")
+# cipher_lua("custom_scripts/my-timer.lua",     None,           "script/global.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000013/")
+# ALL FAIL FAIL
 
 # cipher_lua("custom_scripts/node_info.lua",    "node_info",     "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0005-000000000001/")
 # # FAIL FAIL

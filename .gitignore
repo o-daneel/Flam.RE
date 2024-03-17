@@ -1,7 +1,13 @@
+*.pyc
+*.bkp
+
+.vscode/
 dump
 **/dump_dirs
 **/fake_stories
 **/custom_lsf
+**/original_scripts
+**/ia_completed
 tools/nodemcu*
 tools/Lua*
 tools/block*

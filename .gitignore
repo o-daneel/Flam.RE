@@ -11,3 +11,4 @@ dump
 tools/nodemcu*
 tools/Lua*
 tools/block*
+tools/esp-idf*

@@ -41,7 +41,7 @@ def cipher_lua(input_script, title, output_name, output_dir):
         aes = AES.new(raw_dev_key, AES.MODE_CBC, raw_dev_iv)
         with open(output_dir + "info", "wb") as fp:
             # prepare bytes for info file
-            title += "\n"
+            title += "\nscript/local.lsf"
             ciphered = aes.encrypt(pad_zero(title.encode('utf-8')))
             fp.write(ciphered)
 
@@ -155,6 +155,8 @@ def cipher_lua(input_script, title, output_name, output_dir):
 # # OK mais vide
 # cipher_lua("custom_lua/flam_dump3.lua", "Dump Global", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000004/")
 # # FAIL FAIL
+cipher_lua("custom_lua/flam_aio.lua", "All in One (dump)", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000005/")
+cipher_lua("custom_lua/local.lua", None, "script/local.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000005/")
 
 # cipher_lua("custom_scripts/XXXX.lua", "XXXX", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")
 

@@ -1,0 +1,48 @@
+//------------------------------------------------
+//--- 010 Editor v12.0.1 Binary Template
+//
+//      File: lua_save.bt
+//   Authors: Daneel O.
+//   Version: 1.0
+//   Purpose: 
+//  Category: Lunii
+// File Mask: *.save *.sav
+//  ID Bytes: 
+//   History:
+//------------------------------------------------
+
+typedef struct {
+    char size:5;
+    char type:3;
+    if (type <= 4) {
+        char value[size];
+    }
+    else {
+        short long_size;
+        char value[long_size];
+    }
+} ENTRY <read=value>;
+
+typedef struct {
+    uint32 total_size <format=decimal>;
+    char tag:5 <hidden=true>;
+    if (tag == 0x1F) {
+        char tag2:3 <hidden=true>;
+        char extra_len:4;
+        char undef:4 <hidden=true>;
+        if (extra_len == 0)
+            char count;
+        else
+            short count;
+    }
+    else {
+        local char count = tag;
+//        char count:4;
+    }
+} HEADER;
+
+BitfieldLeftToRight();
+
+FSeek( 0 );
+HEADER header;
+ENTRY one_entry [header.count] <optimize=false> ;

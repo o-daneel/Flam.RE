@@ -155,8 +155,14 @@ def cipher_lua(input_script, title, output_name, output_dir):
 # # OK mais vide
 # cipher_lua("custom_lua/flam_dump3.lua", "Dump Global", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000004/")
 # # FAIL FAIL
+
 cipher_lua("custom_lua/flam_aio.lua", "All in One (dump)", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000005/")
 cipher_lua("custom_lua/local.lua", None, "script/local.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000005/")
+# # OK
+# cipher_lua("custom_lua/flam_fn8.lua", "Update CPath", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000006/")
+# # FAIL FAIL
+cipher_lua("custom_lua/flam_new.lua", "All new Fct", "main.lsf", OUTPUT_DIR+"00000000-0000-FFFF-0001-000000000007/")
+# # OK
 
 # cipher_lua("custom_scripts/XXXX.lua", "XXXX", "main.lsf", OUTPUT_DIR+"00000000-0000-0000-0004-000000000001/")
 

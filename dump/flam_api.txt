@@ -741,14 +741,14 @@ lv
 		set_offset_y
 		set_pivot
 		set_size_mode
-		set_src
-		set_zoom
+		set_src(image, img_src_data)
+		set_zoom(image, zoom_level)
 		src_get_type
 	img_src
-		exists
-		get_height
-		get_width
-		load
+		exists(path)					-- only looking in ./img folder, unable to check elsewhere
+		get_height(img_src_data)
+		get_width(img_src_data)
+		load(path) -> img_src_data
 	keyboard
 		def_event_cb
 		get_btn_text
@@ -1427,17 +1427,17 @@ lv
 		get_from_obj
 		set_parent
 	timer
-		create_basic
+		create_basic()
 		del
-		enable
+		enable(boolean)
 		get_idle
 		handler
-		new
+		new()
 		pause
-		ready
+		ready(timer)
 		reset
 		resume
-		set_period
+		set_period(timer, int)
 		set_repeat_count
 	txt
 		get_size
@@ -1527,8 +1527,8 @@ print
 print_mem_stat
 progress
 progression
-	load
-	save
+	load(name) -> table_data					-- load a file and returns the contents as a table 
+	save(name, table_data)						-- creates a file in /usr/0/UUID/name.save, containning table_data
 rawequal
 rawget
 rawlen
@@ -1551,3 +1551,43 @@ utf8
 warn
 window
 xpcall
+
+---------------------------------------------------
+Constructors (no params)
+	lv.anim.new()
+	lv.area.new()
+	lv.color_filter_dsc.new()
+	lv.coord_array.new()
+	lv.group.new()
+	lv.style.new()
+	lv.style_prop_array.new()
+	lv.style_transition_dsc.new()
+	lv.timer.new()
+
+Constructors (with params)
+	lv.animimg.new(param1)
+	lv.arc.new(param1)
+	lv.bar.new(param1)
+	lv.btn.new(param1)
+	lv.canvas.new(param1)
+	lv.checkbox.new(param1)
+	lv.dropdown.new(param1)
+	lv.img.new(param1)
+	lv.keyboard.new(param1)
+	lv.label.new(param1)
+	lv.line.new(param1)
+	lv.list.new(param1)
+	lv.menu.new(param1)
+	lv.menu_cont.new(param1)
+	lv.menu_page.new(param1, param2)
+	lv.menu_section.new(param1)
+	lv.menu_separator.new(param1)
+	lv.obj.new(param1)
+	lv.qrcode.new(param1, param2, param3, param4)
+	lv.roller.new(param1)
+	lv.slider.new(param1)
+	lv.spangroup.new(param1)
+	lv.spinner.new(param1, param2, param3)
+	lv.switch.new(param1)
+	lv.table.new(param1)
+	lv.textarea.new(param1)

@@ -24,6 +24,7 @@
 
 
 ## Assumptions 
+1. StoryManager starts by deciphering all files to internal Flash before start Lua interpreter
 
 ## Validated 
 1.  `.mdf` file reuse same strucute as `.md` from Lunii v3  
@@ -31,9 +32,13 @@
 2.  `key` file contains Story AES Key & IV, but ciphered with device key
 3.  Audio files are not encrypted
 4.  Images files are not encrypted 
+5.  It is possible to update `package.cpath`
+6.  StoryManager is not in Lua. Updating `package.cpath` from one story and reading from another does not allow to keep first value
 
 ## Attack path
 1. `info` file : Using info displayed upon story selection
+2. Create a .so lib and load it from LUA script
+3. Common Lunii and Flam story might share the key. Use Lunii to get key. Key to get plain LSF on Flam.
 
 ### 1. Info file
 * Using `.mdf` as ciphered known plain text as key file, to generate a ciphered info file and determine where is located story title.  

@@ -1,0 +1,15 @@
+local h_container = {}
+--[[_AES_LOST_]] h_container.create(parent, spacing, clickable)
+-- function h_container.create(parent, spacing, clickable)
+--[[_AES_LOST_]] iner
+--[[_AES_LOST_]] if (clickable) then
+--[[_AES_LOST_]] btn_container = lv.btn.new(parent)
+--[[_AES_LOST_]] obj_container = lv.obj.new(parent)
+--[[_AES_LOST_]] lv.obj.remove_style_all(container)
+--[[_AES_LOST_]]
+--[[_AES_LOST_]]lv.obj.set_flex_flow(container, lv.FLEX_FLOW_ROW)
+--[[_AES_LOST_]]lv.obj.set_style_pad_column(container, spacing, lv.STATE_DEFAULT)
+--[[_AES_LOST_]]container
+--[[_AES_LOST_]]
+--[[_AES_LOST_]]return h_container
+--[[_AES_LOST_]]

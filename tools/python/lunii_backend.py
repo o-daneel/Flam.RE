@@ -54,3 +54,28 @@ def user_getDevices(json_auth, debug=False):
 def prod_getWifiPsk(json_auth, snu, debug=False):
     fw = requests.get(f"https://server-backend-prod.lunii.com/factory/products/{snu}", headers=json_auth)
     print(fw.json())
+
+def prod_getType(json_auth, snu):
+    dev = requests.get(f"https://server-backend-prod.lunii.com/factory/products/{snu}", headers=json_auth)
+    # print(dev.json())
+    return dev.json()['reference'], dev.json()['version']
+
+def prod_getResources(json_auth, devtype):
+    res = requests.get(f"https://server-backend-prod.lunii.com/resource/devices/{devtype}", headers=json_auth)
+    print(res.json())
+
+def user_getAudioBooks(json_auth, dev_id):
+    books = requests.get(f"https://server-backend-prod.lunii.com/user/audiobooks", headers=json_auth)
+    print(books.json())
+    
+def user_addBundleFree(json_auth, dev_id, bookId):
+    body_pair = {}
+    body_pair.update({"audiobookId":bookId})
+    # body_pair.update({"tags":{"age":"7yo", "bundle":"free"}})
+    print(body_pair)
+    books = requests.post(f"https://server-backend-prod.lunii.com/user/devices/{dev_id}/audiobooks", headers=json_auth, data=body_pair)
+    print(books.json())
+
+
+# -NbO_wYEJfEbr8YEADme
+

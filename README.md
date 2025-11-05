@@ -16,7 +16,8 @@ Even if you don't, children will 😁**
 # TL;DR
 Too long, didn't read ?    
 
-1. LIFF format has been succesfully reversed. ⭐⭐⭐
+1. LIFF format has been succesfully reversed. ⭐⭐⭐  
+   C reference implementation based on QOI available here : https://github.com/o-daneel/lif
 
 ## Reverse state 📈  
 
@@ -33,6 +34,7 @@ Too long, didn't read ?
 * Get SWD/JTAG connection
   
 # Links / Similar repos
+* [Lunii Image File Format](https://github.com/o-daneel/lif)
 * [Light and Versatile Graphics Library](https://lvgl.io/)
 * [LUA.org](https://www.lua.org/)
 * [lua + lvgl = luavgl](https://github.com/XuNeo/luavgl)

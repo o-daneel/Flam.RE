@@ -1,5 +1,5 @@
 # THE LUNII IMAGE FILE FORMAT
-Reversed specification Version 1.0, 2025.10.31 – github.com/o-daneel/Flam.RE – oDaneel
+Reversed specification Version 1.0, 2025.10.31 – [github.com/o-daneel/lif](https://github.com/o-daneel/lif) – oDaneel
 
 > **THE QUITE OK IMAGE FORMAT**  
 Specification Version 1.0, 2022.01.05 – qoiformat.org – Dominic Szablewski
